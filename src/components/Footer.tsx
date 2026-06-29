@@ -5,8 +5,8 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
           <div className="md:col-span-2">
             <div className="flex items-center gap-2 mb-6">
-              <img src="/logo.png" alt="BRINA Logo" className="w-12 h-12 object-contain drop-shadow-md rounded-full" />
-              <span className="text-2xl font-black tracking-tighter uppercase text-white">BRINA</span>
+              <img src="/logo.jpeg" alt="BRINA Logo" className="w-12 h-12 object-contain drop-shadow-md rounded-full" />
+              <span className="text-2xl font-black tracking-tighter uppercase text-white">BRINA PUTIH TELUR</span>
             </div>
             <p className="text-slate-400 max-w-sm leading-relaxed font-medium">
               Mitra terbaik untuk memenuhi kebutuhan protein harian Anda. Berkualitas, higienis, dan terpercaya tanpa lemak tambahan.
@@ -25,16 +25,16 @@ export default function Footer() {
           <div>
             <h4 className="font-black text-sm uppercase tracking-widest text-yellow-400 mb-6">Kontak</h4>
             <ul className="space-y-4 font-medium text-slate-400 text-sm">
-              <li><span className="block font-bold text-white uppercase tracking-wider text-xs mb-1">WhatsApp</span> +62 812-3456-7890</li>
-              <li><span className="block font-bold text-white uppercase tracking-wider text-xs mb-1">Email</span> halo@putihtelur.id</li>
-              <li><span className="block font-bold text-white uppercase tracking-wider text-xs mb-1">Lokasi</span> Jakarta, Indonesia</li>
+              <li><span className="block font-bold text-white uppercase tracking-wider text-xs mb-1">WhatsApp</span> +62 821-4662-8802</li>
+              <li><span className="block font-bold text-white uppercase tracking-wider text-xs mb-1">Email</span> putihtelursmg@gmail.com</li>
+              <li><span className="block font-bold text-white uppercase tracking-wider text-xs mb-1">Lokasi</span> Jl. Badak II No.19, Pandean Lamper, Kec. Gayamsari, Kota Semarang, Jawa Tengah 50249, Indonesia</li>
             </ul>
           </div>
         </div>
         
         <div className="pt-8 border-t border-slate-800 text-center md:text-left text-slate-500 text-sm flex flex-col md:flex-row justify-between items-center gap-4 font-bold uppercase tracking-widest">
-          <p>&copy; {new Date().getFullYear()} BRINA. Hak Cipta Dilindungi.</p>
-          <p className="text-yellow-500">MURNI. BERSIH. KUAT.</p>
+          <p>&copy; {new Date().getFullYear()} BRINA PUTIH TELUR. Hak Cipta Dilindungi.</p>
+          <p className="text-yellow-500">MURNI. BERSIH. SEHAT.</p>
         </div>
       </div>
     </footer>

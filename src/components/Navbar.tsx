@@ -9,8 +9,8 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-24">
           <div className="flex items-center gap-2">
-            <img src="/logo.png" alt="BRINA Logo" className="w-12 h-12 object-contain drop-shadow-md rounded-full" />
-            <span className="text-2xl font-black tracking-tighter uppercase text-slate-900">BRINA</span>
+            <img src="/logo.jpeg" alt="BRINA Logo" className="w-12 h-12 object-contain drop-shadow-md rounded-full" />
+            <span className="text-2xl font-black tracking-tighter uppercase text-slate-900">BRINA PUTIH TELUR</span>
           </div>
           
           <div className="hidden md:flex items-center gap-8 font-bold text-sm uppercase tracking-widest">

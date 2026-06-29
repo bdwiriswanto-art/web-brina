@@ -17,11 +17,11 @@ export default function Hero() {
             className="max-w-2xl"
           >
             <div className="inline-block px-4 py-1 bg-yellow-100 text-yellow-700 rounded-full text-xs font-bold uppercase tracking-widest mb-6">
-              100% Pasteurisasi Alami
+              Murni Bersih Sehat
             </div>
             
             <h1 className="text-5xl lg:text-7xl font-black leading-[0.9] mb-8 uppercase text-slate-900">
-              MURNI.<br/>BERSIH.<br/><span className="text-yellow-400">KUAT.</span>
+              MURNI<br/>BERSIH<br/><span className="text-yellow-400">SEHAT</span>
             </h1>
             
             <p className="text-xl text-slate-600 leading-relaxed mb-10 max-w-md">
@@ -75,7 +75,7 @@ export default function Hero() {
                   <div className="w-24 h-24 border-4 border-dashed border-yellow-200 rounded-full"></div>
                 </div>
                 <div className="text-center">
-                  <p className="font-black text-2xl text-slate-900">BRINA</p>
+                  <p className="font-black text-2xl text-slate-900">BRINA PUTIH TELUR</p>
                   <p className="text-slate-400 text-sm font-bold uppercase tracking-widest">Liquid Egg White</p>
                 </div>
               </div>

@@ -4,27 +4,27 @@ import { ShoppingCart } from 'lucide-react';
 const products = [
   {
     id: '1',
-    name: 'Putih Telur Cair 1 Liter',
-    description: 'Kemasan hemat untuk kebutuhan protein harian yang tinggi. Setara dengan ±30 putih telur ukuran sedang.',
-    price: 'Rp 35.000',
+    name: 'Putih Telur Mentah (1 kg)',
+    description: 'Kemasan pas untuk kebutuhan protein harian yang tinggi. Setara dengan ±30 putih telur ukuran sedang.',
+    price: 'Rp 20.000',
     popular: true,
-    color: 'bg-yellow-400'
+    image: '/putihtelurmentah1L.jpeg'
   },
   {
     id: '2',
-    name: 'Putih Telur Cair 500ml',
-    description: 'Kemasan praktis untuk pemula atau kebutuhan baking rumahan. Setara dengan ±15 putih telur.',
-    price: 'Rp 20.000',
+    name: 'Putih Telur Matang (1 kg)',
+    description: 'Siap makan! Putih telur matang yang diproses higienis. Cocok untuk cemilan diet instan.',
+    price: 'Rp 30.000',
     popular: false,
-    color: 'bg-slate-400'
+    image: '/putihtelurrebus1L.jpeg'
   },
   {
     id: '3',
-    name: 'Putih Telur Rebus (1kg)',
-    description: 'Siap makan! Putih telur matang yang diproses higienis. Cocok untuk cemilan diet instan.',
-    price: 'Rp 45.000',
+    name: 'Putih Telur Mentah (16 kg)',
+    description: 'Kemasan grosir untuk usaha kuliner, baking, atau konsumsi dalam jumlah besar. (Rp 18.000/kg)',
+    price: 'Rp 288.000',
     popular: false,
-    color: 'bg-green-400'
+    image: '/putihtelur16L.jpeg'
   }
 ];
 
@@ -32,7 +32,7 @@ export default function Products() {
   const handleOrder = (productName: string) => {
     // Generate WhatsApp link (replace with actual number)
     const text = encodeURIComponent(`Halo, saya ingin memesan ${productName}. Apakah stoknya tersedia?`);
-    window.open(`https://wa.me/6281234567890?text=${text}`, '_blank');
+    window.open(`https://wa.me/6282146628802?text=${text}`, '_blank');
   };
 
   return (
@@ -75,11 +75,8 @@ export default function Products() {
                   <span className="text-4xl font-black text-yellow-500">{product.price}</span>
                 </div>
 
-                <div className="w-full aspect-square bg-slate-50 rounded-[32px] mb-8 flex items-center justify-center p-6 border-4 border-white shadow-inner relative overflow-hidden">
-                   <div className="text-center relative z-10">
-                     <div className={`w-24 h-28 ${product.color} rounded-t-full rounded-b-[2rem] opacity-30 mx-auto mb-4 border-4 border-white shadow-sm`}></div>
-                     <span className="text-slate-400 font-bold uppercase tracking-widest text-[10px]">Ilustrasi Produk</span>
-                   </div>
+                <div className="w-full aspect-square bg-slate-50 rounded-[32px] mb-8 flex items-center justify-center border-4 border-white shadow-inner relative overflow-hidden">
+                   <img src={product.image} alt={product.name} className="w-full h-full object-cover" />
                 </div>
               </div>
 

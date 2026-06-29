@@ -9,8 +9,8 @@ const features = [
   },
   {
     icon: <ShieldCheck className="w-8 h-8 text-slate-900" />,
-    title: 'Pasteurisasi Higienis',
-    description: 'Diproses dengan teknologi pasteurisasi modern untuk membunuh bakteri Salmonella. Aman dikonsumsi mentah.'
+    title: 'Proses Higienis',
+    description: 'Diproses dengan standar kebersihan tinggi untuk kualitas terbaik yang aman dikonsumsi.'
   },
   {
     icon: <Droplets className="w-8 h-8 text-slate-900" />,
