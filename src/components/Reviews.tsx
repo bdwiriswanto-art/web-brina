@@ -134,39 +134,12 @@ export default function Reviews() {
     }
   }, [reviewsList]);
 
-  // Permanent premium sector images with local customization
+  // Permanent premium sector images
   const defaultSectorImages = {
-    masyarakat: 'https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=800&q=80',
-    pedagang: 'https://images.unsplash.com/photo-1516448620398-c5f44bf9f441?auto=format&fit=crop&w=800&q=80',
-    pabrik: 'https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=800&q=80'
+    masyarakat: '/masyarakatumum.png',
+    pedagang: '/Pedagang%20Pasar.jpeg',
+    pabrik: '/Pabrik&Catering.jpeg'
   };
-
-  const [sectorImages, setSectorImages] = useState<Record<string, string>>(() => {
-    if (typeof window !== 'undefined') {
-      try {
-        const saved = localStorage.getItem('brina_sector_images');
-        if (saved) {
-          const parsed = JSON.parse(saved);
-          return {
-            masyarakat: parsed.masyarakat || defaultSectorImages.masyarakat,
-            pedagang: parsed.pedagang || defaultSectorImages.pedagang,
-            pabrik: parsed.pabrik || defaultSectorImages.pabrik,
-          };
-        }
-      } catch (e) {
-        console.error('Gagal memuat gambar sektor:', e);
-      }
-    }
-    return defaultSectorImages;
-  });
-
-  useEffect(() => {
-    try {
-      localStorage.setItem('brina_sector_images', JSON.stringify(sectorImages));
-    } catch (e) {
-      console.error('Gagal menyimpan gambar sektor:', e);
-    }
-  }, [sectorImages]);
 
   const handleDelete = (id: string) => {
     if (confirm('Apakah Anda yakin ingin menghapus ulasan ini?')) {
@@ -556,7 +529,7 @@ export default function Reviews() {
               {/* Image Banner */}
               <div className="relative h-48 bg-slate-50 flex items-center justify-center border-b border-slate-100 overflow-hidden">
                 <img
-                  src={sectorImages.masyarakat || defaultSectorImages.masyarakat}
+                  src={defaultSectorImages.masyarakat}
                   alt="Masyarakat Umum"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   referrerPolicy="no-referrer"
@@ -584,7 +557,7 @@ export default function Reviews() {
               {/* Image Banner */}
               <div className="relative h-48 bg-slate-50 flex items-center justify-center border-b border-slate-100 overflow-hidden">
                 <img
-                  src={sectorImages.pedagang || defaultSectorImages.pedagang}
+                  src={defaultSectorImages.pedagang}
                   alt="Pedagang Pasar"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   referrerPolicy="no-referrer"
@@ -612,7 +585,7 @@ export default function Reviews() {
               {/* Image Banner */}
               <div className="relative h-48 bg-slate-50 flex items-center justify-center border-b border-slate-100 overflow-hidden">
                 <img
-                  src={sectorImages.pabrik || defaultSectorImages.pabrik}
+                  src={defaultSectorImages.pabrik}
                   alt="Pabrik & Catering"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   referrerPolicy="no-referrer"
