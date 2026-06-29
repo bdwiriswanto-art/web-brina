@@ -6,7 +6,9 @@
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Features from './components/Features';
+import EggTheory from './components/EggTheory';
 import Products from './components/Products';
+import Reviews from './components/Reviews';
 import Footer from './components/Footer';
 
 export default function App() {
@@ -16,7 +18,9 @@ export default function App() {
       <main>
         <Hero />
         <Features />
+        <EggTheory />
         <Products />
+        <Reviews />
       </main>
       <Footer />
     </div>

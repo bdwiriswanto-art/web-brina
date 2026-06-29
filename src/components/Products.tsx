@@ -1,5 +1,5 @@
 import { motion } from 'motion/react';
-import { ShoppingCart } from 'lucide-react';
+import { ShoppingCart, ShoppingBag } from 'lucide-react';
 
 const products = [
   {
@@ -80,18 +80,27 @@ export default function Products() {
                 </div>
               </div>
 
-              <div className="p-8 pt-0 mt-auto">
+              <div className="p-8 pt-0 mt-auto space-y-3">
                 <button
                   onClick={() => handleOrder(product.name)}
-                  className={`w-full flex items-center justify-center gap-3 py-5 px-6 rounded-2xl font-black uppercase tracking-widest text-sm transition-colors ${
+                  className={`w-full flex items-center justify-center gap-3 py-4 px-6 rounded-2xl font-black uppercase tracking-widest text-xs transition-colors ${
                     product.popular 
-                      ? 'bg-yellow-400 text-slate-900 hover:bg-yellow-500 shadow-lg shadow-yellow-200' 
+                      ? 'bg-yellow-400 text-slate-900 hover:bg-yellow-500 shadow-lg shadow-yellow-100' 
                       : 'bg-slate-900 text-white hover:bg-yellow-400 hover:text-slate-900'
                   }`}
                 >
-                  <ShoppingCart className="w-5 h-5" />
+                  <ShoppingCart className="w-4 h-4" />
                   Beli via WhatsApp
                 </button>
+                <a
+                  href="https://shopee.co.id/putihtelur.smg"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full flex items-center justify-center gap-3 py-4 px-6 rounded-2xl font-black uppercase tracking-widest text-xs bg-[#ee4d2d] text-white hover:bg-[#d44023] transition-all shadow-md shadow-orange-100 hover:shadow-lg hover:-translate-y-0.5"
+                >
+                  <ShoppingBag className="w-4 h-4" />
+                  Beli via Shopee
+                </a>
               </div>
             </motion.div>
           ))}
