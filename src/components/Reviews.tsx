@@ -134,7 +134,7 @@ export default function Reviews() {
     }
   }, [reviewsList]);
 
-  // Customizable sector images with permanent beautiful defaults and persistence
+  // Permanent premium sector images with local customization
   const defaultSectorImages = {
     masyarakat: 'https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=800&q=80',
     pedagang: 'https://images.unsplash.com/photo-1516448620398-c5f44bf9f441?auto=format&fit=crop&w=800&q=80',
@@ -167,27 +167,6 @@ export default function Reviews() {
       console.error('Gagal menyimpan gambar sektor:', e);
     }
   }, [sectorImages]);
-
-  const handleSectorImageUpload = (sector: 'masyarakat' | 'pedagang' | 'pabrik', e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        setSectorImages(prev => ({
-          ...prev,
-          [sector]: reader.result as string
-        }));
-      };
-      reader.readAsDataURL(file);
-    }
-  };
-
-  const handleRemoveSectorImage = (sector: 'masyarakat' | 'pedagang' | 'pabrik') => {
-    setSectorImages(prev => ({
-      ...prev,
-      [sector]: defaultSectorImages[sector]
-    }));
-  };
 
   const handleDelete = (id: string) => {
     if (confirm('Apakah Anda yakin ingin menghapus ulasan ini?')) {
@@ -579,32 +558,9 @@ export default function Reviews() {
                 <img
                   src={sectorImages.masyarakat || defaultSectorImages.masyarakat}
                   alt="Masyarakat Umum"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   referrerPolicy="no-referrer"
                 />
-                {/* Actions Overlay */}
-                <div className="absolute inset-0 bg-slate-950/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2">
-                  <label className="cursor-pointer bg-white text-slate-900 px-3 py-1.5 rounded-lg text-xs font-black uppercase tracking-wider flex items-center gap-1 hover:bg-slate-50 shadow-md transition-all">
-                    <Camera className="w-3.5 h-3.5" />
-                    Ganti Foto
-                    <input
-                      type="file"
-                      accept="image/*"
-                      className="hidden"
-                      onChange={(e) => handleSectorImageUpload('masyarakat', e)}
-                    />
-                  </label>
-                  {sectorImages.masyarakat && sectorImages.masyarakat !== defaultSectorImages.masyarakat && (
-                    <button
-                      onClick={() => handleRemoveSectorImage('masyarakat')}
-                      className="bg-red-500 hover:bg-red-600 text-white p-1.5 rounded-lg shadow-md transition-all font-bold text-xs flex items-center gap-1"
-                      title="Reset ke Foto Default"
-                    >
-                      <Trash2 className="w-3.5 h-3.5" />
-                      Reset
-                    </button>
-                  )}
-                </div>
               </div>
               
               {/* Content */}
@@ -620,21 +576,6 @@ export default function Reviews() {
                     Konsumen rumah tangga, penggiat fitness, olahragawan, dan pelaku diet sehat yang membutuhkan asupan protein murni bebas lemak setiap hari.
                   </p>
                 </div>
-                
-                {/* Upload Button below description as helper */}
-                <div className="mt-5 pt-4 border-t border-slate-50 flex items-center justify-between">
-                  <span className="text-[9px] text-slate-400 font-bold uppercase">Foto Sektor</span>
-                  <label className="cursor-pointer text-blue-600 hover:text-blue-800 text-[10px] font-black uppercase tracking-wider flex items-center gap-1">
-                    <Camera className="w-3 h-3" />
-                    Unggah Kustom
-                    <input
-                      type="file"
-                      accept="image/*"
-                      className="hidden"
-                      onChange={(e) => handleSectorImageUpload('masyarakat', e)}
-                    />
-                  </label>
-                </div>
               </div>
             </div>
 
@@ -645,32 +586,9 @@ export default function Reviews() {
                 <img
                   src={sectorImages.pedagang || defaultSectorImages.pedagang}
                   alt="Pedagang Pasar"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   referrerPolicy="no-referrer"
                 />
-                {/* Actions Overlay */}
-                <div className="absolute inset-0 bg-slate-950/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2">
-                  <label className="cursor-pointer bg-white text-slate-900 px-3 py-1.5 rounded-lg text-xs font-black uppercase tracking-wider flex items-center gap-1 hover:bg-slate-50 shadow-md transition-all">
-                    <Camera className="w-3.5 h-3.5" />
-                    Ganti Foto
-                    <input
-                      type="file"
-                      accept="image/*"
-                      className="hidden"
-                      onChange={(e) => handleSectorImageUpload('pedagang', e)}
-                    />
-                  </label>
-                  {sectorImages.pedagang && sectorImages.pedagang !== defaultSectorImages.pedagang && (
-                    <button
-                      onClick={() => handleRemoveSectorImage('pedagang')}
-                      className="bg-red-500 hover:bg-red-600 text-white p-1.5 rounded-lg shadow-md transition-all font-bold text-xs flex items-center gap-1"
-                      title="Reset ke Foto Default"
-                    >
-                      <Trash2 className="w-3.5 h-3.5" />
-                      Reset
-                    </button>
-                  )}
-                </div>
               </div>
 
               {/* Content */}
@@ -686,21 +604,6 @@ export default function Reviews() {
                     Pengecer bahan makanan, lapak grosir, serta pedagang pasar tradisional Semarang yang mempercayakan suplai harian mereka kepada kami.
                   </p>
                 </div>
-
-                {/* Upload Button below description as helper */}
-                <div className="mt-5 pt-4 border-t border-slate-50 flex items-center justify-between">
-                  <span className="text-[9px] text-slate-400 font-bold uppercase">Foto Sektor</span>
-                  <label className="cursor-pointer text-emerald-600 hover:text-emerald-800 text-[10px] font-black uppercase tracking-wider flex items-center gap-1">
-                    <Camera className="w-3 h-3" />
-                    Unggah Kustom
-                    <input
-                      type="file"
-                      accept="image/*"
-                      className="hidden"
-                      onChange={(e) => handleSectorImageUpload('pedagang', e)}
-                    />
-                  </label>
-                </div>
               </div>
             </div>
 
@@ -711,32 +614,9 @@ export default function Reviews() {
                 <img
                   src={sectorImages.pabrik || defaultSectorImages.pabrik}
                   alt="Pabrik & Catering"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   referrerPolicy="no-referrer"
                 />
-                {/* Actions Overlay */}
-                <div className="absolute inset-0 bg-slate-950/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2">
-                  <label className="cursor-pointer bg-white text-slate-900 px-3 py-1.5 rounded-lg text-xs font-black uppercase tracking-wider flex items-center gap-1 hover:bg-slate-50 shadow-md transition-all">
-                    <Camera className="w-3.5 h-3.5" />
-                    Ganti Foto
-                    <input
-                      type="file"
-                      accept="image/*"
-                      className="hidden"
-                      onChange={(e) => handleSectorImageUpload('pabrik', e)}
-                    />
-                  </label>
-                  {sectorImages.pabrik && sectorImages.pabrik !== defaultSectorImages.pabrik && (
-                    <button
-                      onClick={() => handleRemoveSectorImage('pabrik')}
-                      className="bg-red-500 hover:bg-red-600 text-white p-1.5 rounded-lg shadow-md transition-all font-bold text-xs flex items-center gap-1"
-                      title="Reset ke Foto Default"
-                    >
-                      <Trash2 className="w-3.5 h-3.5" />
-                      Reset
-                    </button>
-                  )}
-                </div>
               </div>
 
               {/* Content */}
@@ -752,29 +632,10 @@ export default function Reviews() {
                     Industri roti (bakery), pabrik mi, produsen makanan olahan, serta katering skala besar yang membutuhkan pasokan kental putih telur dalam jumlah tonase stabil.
                   </p>
                 </div>
-
-                {/* Upload Button below description as helper */}
-                <div className="mt-5 pt-4 border-t border-slate-50 flex items-center justify-between">
-                  <span className="text-[9px] text-slate-400 font-bold uppercase">Foto Sektor</span>
-                  <label className="cursor-pointer text-purple-600 hover:text-purple-800 text-[10px] font-black uppercase tracking-wider flex items-center gap-1">
-                    <Camera className="w-3 h-3" />
-                    Unggah Kustom
-                    <input
-                      type="file"
-                      accept="image/*"
-                      className="hidden"
-                      onChange={(e) => handleSectorImageUpload('pabrik', e)}
-                    />
-                  </label>
-                </div>
               </div>
             </div>
           </div>
-
-
         </div>
-
-
 
       </div>
     </section>
