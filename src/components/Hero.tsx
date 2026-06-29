@@ -66,17 +66,15 @@ export default function Hero() {
             className="relative lg:h-[600px] flex items-center justify-center"
           >
             {/* Abstract representation of the product */}
-            <div className="relative w-full max-w-[380px] aspect-[4/5] bg-slate-50 rounded-[60px] border-8 border-white shadow-2xl overflow-hidden flex items-center justify-center mx-auto">
-              <div className="absolute top-0 w-full h-1/3 bg-yellow-400 flex items-center justify-center">
+            <div className="relative w-full max-w-[420px] aspect-[4/5] bg-slate-50 rounded-[60px] border-8 border-white shadow-2xl overflow-hidden flex items-center justify-center mx-auto">
+              <div className="absolute top-0 w-full h-1/4 bg-yellow-400 flex items-center justify-center">
                 <span className="text-white font-black text-4xl italic">PROTEIN+</span>
               </div>
-              <div className="mt-20 flex flex-col items-center relative z-10">
-                <div className="w-32 h-32 bg-white rounded-full shadow-inner flex items-center justify-center mb-4">
-                  <div className="w-24 h-24 border-4 border-dashed border-yellow-200 rounded-full"></div>
-                </div>
+              <div className="mt-16 flex flex-col items-center relative z-10 w-full px-4">
+                <img src="/Liquid%20Egg%20White.png" alt="Liquid Egg White" className="w-[300px] md:w-[360px] h-auto object-contain mb-6 drop-shadow-2xl hover:scale-105 transition-transform duration-500" />
                 <div className="text-center">
-                  <p className="font-black text-2xl text-slate-900">BRINA PUTIH TELUR</p>
-                  <p className="text-slate-400 text-sm font-bold uppercase tracking-widest">Liquid Egg White</p>
+                  <p className="font-black text-2xl text-slate-900 leading-tight">BRINA PUTIH TELUR</p>
+                  <p className="text-slate-400 text-xs font-bold uppercase tracking-widest mt-1">Liquid Egg White</p>
                 </div>
               </div>
             </div>
