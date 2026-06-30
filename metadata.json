@@ -1,6 +1,6 @@
 {
-  "name": "Putih Telur Premium",
-  "description": "Website penjualan putih telur premium tinggi protein untuk kesehatan dan kebugaran.",
+  "name": "",
+  "description": "",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }
