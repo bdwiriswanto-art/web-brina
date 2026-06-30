@@ -93,7 +93,7 @@ export default function Products() {
                   Beli via WhatsApp
                 </button>
                 <a
-                  href="https://shopee.co.id/putihtelur.smg"
+                  href="https://id.shp.ee/Yt3tDYxd"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full flex items-center justify-center gap-3 py-4 px-6 rounded-2xl font-black uppercase tracking-widest text-xs bg-[#ee4d2d] text-white hover:bg-[#d44023] transition-all shadow-md shadow-orange-100 hover:shadow-lg hover:-translate-y-0.5"

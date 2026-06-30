@@ -24,7 +24,7 @@ export default function Footer() {
                 <Instagram className="w-5 h-5" />
               </a>
               <a 
-                href="https://shopee.co.id/putihtelur.smg" 
+                href="https://id.shp.ee/Yt3tDYxd" 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="w-10 h-10 bg-slate-800 rounded-full flex items-center justify-center hover:bg-[#ee4d2d] hover:text-white transition-all text-slate-400"
@@ -63,7 +63,7 @@ export default function Footer() {
               <li><span className="block font-bold text-white uppercase tracking-wider text-xs mb-1">WhatsApp</span> +62 821-4662-8802</li>
               <li><span className="block font-bold text-white uppercase tracking-wider text-xs mb-1">Instagram</span> <a href="https://www.instagram.com/putihtelur.smg?igsh=MW11ZmNsbzVuOTF3NA==" target="_blank" rel="noopener noreferrer" className="text-yellow-400 hover:underline">@putihtelur.smg</a></li>
               <li><span className="block font-bold text-white uppercase tracking-wider text-xs mb-1">TikTok</span> <a href="https://www.tiktok.com/@putihtelur.smg?_t=ZS-8zehzNZOvOG&_r=1" target="_blank" rel="noopener noreferrer" className="text-yellow-400 hover:underline">@putihtelur.smg</a></li>
-              <li><span className="block font-bold text-white uppercase tracking-wider text-xs mb-1">Shopee</span> <a href="https://shopee.co.id/putihtelur.smg" target="_blank" rel="noopener noreferrer" className="text-yellow-400 hover:underline">putihtelur.smg</a></li>
+              <li><span className="block font-bold text-white uppercase tracking-wider text-xs mb-1">Shopee</span> <a href="https://id.shp.ee/Yt3tDYxd" target="_blank" rel="noopener noreferrer" className="text-yellow-400 hover:underline">putihtelur.smg</a></li>
               <li><span className="block font-bold text-white uppercase tracking-wider text-xs mb-1">Email</span> putihtelursmg@gmail.com</li>
               <li><span className="block font-bold text-white uppercase tracking-wider text-xs mb-1">Lokasi</span> Jl. Badak II No.19, Pandean Lamper, Kec. Gayamsari, Kota Semarang, Jawa Tengah 50249, Indonesia</li>
             </ul>
