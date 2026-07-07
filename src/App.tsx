@@ -1,3 +1,4 @@
+import { LanguageProvider } from './context/LanguageContext';
 /**
  * @license
  * SPDX-License-Identifier: Apache-2.0
@@ -13,7 +14,7 @@ import Footer from './components/Footer';
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-white font-sans text-slate-900 scroll-smooth selection:bg-yellow-200 selection:text-yellow-900">
+    <LanguageProvider><div className="min-h-screen bg-white font-sans text-slate-900 scroll-smooth selection:bg-yellow-200 selection:text-yellow-900">
       <Navbar />
       <main>
         <Hero />
@@ -23,6 +24,6 @@ export default function App() {
         <Reviews />
       </main>
       <Footer />
-    </div>
+    </div></LanguageProvider>
   );
 }

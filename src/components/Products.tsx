@@ -1,37 +1,41 @@
 import { motion } from 'motion/react';
 import { ShoppingCart, ShoppingBag } from 'lucide-react';
-
-const products = [
-  {
-    id: '1',
-    name: 'Putih Telur Mentah (1 kg)',
-    description: 'Kemasan pas untuk kebutuhan protein harian yang tinggi. Setara dengan ±30 putih telur ukuran sedang.',
-    price: 'Rp 20.000',
-    popular: true,
-    image: '/putihtelurmentah1L.jpeg'
-  },
-  {
-    id: '2',
-    name: 'Putih Telur Matang (1 kg)',
-    description: 'Siap makan! Putih telur matang yang diproses higienis. Cocok untuk cemilan diet instan.',
-    price: 'Rp 30.000',
-    popular: false,
-    image: '/putihtelurrebus1L.jpeg'
-  },
-  {
-    id: '3',
-    name: 'Putih Telur Mentah (16 kg)',
-    description: 'Kemasan grosir untuk usaha kuliner, baking, atau konsumsi dalam jumlah besar. (Rp 18.000/kg)',
-    price: 'Rp 288.000',
-    popular: false,
-    image: '/putihtelur16L.jpeg'
-  }
-];
+import { useLanguage } from '../context/LanguageContext';
 
 export default function Products() {
+  const { t, language } = useLanguage();
+
+  const products = [
+    {
+      id: '1',
+      name: t('p1_name', 'products'),
+      description: t('p1_desc', 'products'),
+      price: 'Rp 20.000',
+      popular: true,
+      image: '/putihtelurmentah1L.jpeg'
+    },
+    {
+      id: '2',
+      name: t('p2_name', 'products'),
+      description: t('p2_desc', 'products'),
+      price: 'Rp 30.000',
+      popular: false,
+      image: '/putihtelurrebus1L.jpeg'
+    },
+    {
+      id: '3',
+      name: t('p3_name', 'products'),
+      description: t('p3_desc', 'products'),
+      price: 'Rp 288.000',
+      popular: false,
+      image: '/putihtelur16L.jpeg'
+    }
+  ];
+
   const handleOrder = (productName: string) => {
-    // Generate WhatsApp link (replace with actual number)
-    const text = encodeURIComponent(`Halo, saya ingin memesan ${productName}. Apakah stoknya tersedia?`);
+    const rawMsg = t('wa_msg', 'products');
+    const msg = rawMsg.replace('{productName}', productName);
+    const text = encodeURIComponent(msg);
     window.open(`https://wa.me/6282146628802?text=${text}`, '_blank');
   };
 
@@ -40,9 +44,9 @@ export default function Products() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
           <div className="max-w-2xl">
-            <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-6 uppercase tracking-tight">Pilihan Produk Kami</h2>
+            <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-6 uppercase tracking-tight">{t('section_title', 'products')}</h2>
             <p className="text-xl text-slate-600 font-medium">
-              Pilih ukuran yang sesuai dengan kebutuhan diet atau usahamu. Pesan sekarang dan kami antar dalam kondisi segar.
+              {t('section_desc', 'products')}
             </p>
           </div>
         </div>
@@ -64,7 +68,7 @@ export default function Products() {
               <div className="p-8 flex-grow">
                 {product.popular && (
                   <span className="inline-block px-4 py-1.5 bg-yellow-100 text-yellow-700 text-xs font-bold uppercase tracking-widest rounded-full mb-6">
-                    Paling Laris 🔥
+                    {t('popular_badge', 'products')}
                   </span>
                 )}
                 
@@ -90,7 +94,7 @@ export default function Products() {
                   }`}
                 >
                   <ShoppingCart className="w-4 h-4" />
-                  Beli via WhatsApp
+                  {t('btn_wa', 'products')}
                 </button>
                 <a
                   href="https://id.shp.ee/Yt3tDYxd"
@@ -99,7 +103,7 @@ export default function Products() {
                   className="w-full flex items-center justify-center gap-3 py-4 px-6 rounded-2xl font-black uppercase tracking-widest text-xs bg-[#ee4d2d] text-white hover:bg-[#d44023] transition-all shadow-md shadow-orange-100 hover:shadow-lg hover:-translate-y-0.5"
                 >
                   <ShoppingBag className="w-4 h-4" />
-                  Beli via Shopee
+                  {t('btn_shopee', 'products')}
                 </a>
               </div>
             </motion.div>

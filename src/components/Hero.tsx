@@ -1,7 +1,10 @@
 import { motion } from 'motion/react';
 import { ArrowRight, Activity, TrendingUp } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
 
 export default function Hero() {
+  const { t } = useLanguage();
+
   return (
     <section id="beranda" className="relative pt-20 pb-32 overflow-hidden bg-white">
       {/* Background Decorative Shapes */}
@@ -17,15 +20,15 @@ export default function Hero() {
             className="max-w-2xl"
           >
             <div className="inline-block px-4 py-1 bg-yellow-100 text-yellow-700 rounded-full text-xs font-bold uppercase tracking-widest mb-6">
-              Murni Bersih Sehat
+              {t('badge', 'hero')}
             </div>
             
             <h1 className="text-5xl lg:text-7xl font-black leading-[0.9] mb-8 uppercase text-slate-900">
-              MURNI<br/>BERSIH<br/><span className="text-yellow-400">SEHAT</span>
+              {t('title1', 'hero')}<br/>{t('title2', 'hero')}<br/><span className="text-yellow-400">{t('title3', 'hero')}</span>
             </h1>
             
             <p className="text-xl text-slate-600 leading-relaxed mb-10 max-w-md">
-              Dapatkan sumber protein terbaik tanpa kolesterol dan lemak. Putih telur cair segar siap minum atau masak untuk kebutuhan nutrisi harianmu.
+              {t('description', 'hero')}
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4">
@@ -33,28 +36,28 @@ export default function Hero() {
                 href="#produk" 
                 className="bg-yellow-400 text-slate-900 px-10 py-5 rounded-2xl font-black text-lg shadow-lg shadow-yellow-200 uppercase text-center hover:bg-yellow-500 transition-colors"
               >
-                Pesan Sekarang
+                {t('btn_pesan', 'hero')}
               </a>
               <a 
                 href="#keunggulan" 
                 className="border-2 border-slate-200 px-10 py-5 rounded-2xl font-black text-lg uppercase text-slate-900 hover:border-slate-300 transition-colors text-center"
               >
-                Lihat Detail
+                {t('btn_detail', 'hero')}
               </a>
             </div>
 
             <div className="mt-16 flex flex-wrap gap-12 border-t border-slate-100 pt-12">
               <div className="flex flex-col">
                 <span className="text-4xl font-black text-yellow-500 leading-none">11g</span>
-                <span className="text-xs font-bold text-slate-400 uppercase tracking-widest mt-2">Protein / 100ml</span>
+                <span className="text-xs font-bold text-slate-400 uppercase tracking-widest mt-2">{t('protein_label', 'hero')}</span>
               </div>
               <div className="flex flex-col">
                 <span className="text-4xl font-black text-slate-900 leading-none">0%</span>
-                <span className="text-xs font-bold text-slate-400 uppercase tracking-widest mt-2">Lemak & Kolesterol</span>
+                <span className="text-xs font-bold text-slate-400 uppercase tracking-widest mt-2">{t('fat_label', 'hero')}</span>
               </div>
               <div className="flex flex-col">
                 <span className="text-4xl font-black text-slate-900 leading-none">FREE</span>
-                <span className="text-xs font-bold text-slate-400 uppercase tracking-widest mt-2">Pengawet</span>
+                <span className="text-xs font-bold text-slate-400 uppercase tracking-widest mt-2">{t('preservative_label', 'hero')}</span>
               </div>
             </div>
           </motion.div>
@@ -86,7 +89,7 @@ export default function Hero() {
               className="absolute lg:-right-4 right-4 lg:top-1/4 top-1/2 w-32 h-32 bg-slate-900 rounded-full flex flex-col items-center justify-center text-white border-4 border-white shadow-xl z-20"
             >
               <span className="text-3xl font-black leading-none mb-1">0%</span>
-              <span className="text-[10px] font-bold uppercase tracking-tight">Lemak</span>
+              <span className="text-[10px] font-bold uppercase tracking-tight">{t('fat_badge', 'hero')}</span>
             </motion.div>
           </motion.div>
         </div>

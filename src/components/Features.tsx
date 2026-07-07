@@ -1,37 +1,40 @@
 import { ShieldCheck, Zap, Droplets, CheckCircle2 } from 'lucide-react';
 import { motion } from 'motion/react';
-
-const features = [
-  {
-    icon: <Zap className="w-8 h-8 text-slate-900" />,
-    title: 'Tinggi Protein',
-    description: 'Mengandung protein murni berkualitas tinggi (11g per 100ml) untuk mendukung pembentukan dan pemulihan otot.'
-  },
-  {
-    icon: <ShieldCheck className="w-8 h-8 text-slate-900" />,
-    title: 'Proses Higienis',
-    description: 'Diproses dengan standar kebersihan tinggi untuk kualitas terbaik yang aman dikonsumsi.'
-  },
-  {
-    icon: <Droplets className="w-8 h-8 text-slate-900" />,
-    title: 'Bebas Lemak',
-    description: '0% lemak dan kolesterol. Pilihan sempurna untuk diet ketat, cutting, atau menjaga berat badan ideal.'
-  },
-  {
-    icon: <CheckCircle2 className="w-8 h-8 text-slate-900" />,
-    title: 'Siap Pakai',
-    description: 'Tidak perlu repot memisahkan kuning telur. Langsung tuang untuk dimasak atau dicampur ke protein shake.'
-  }
-];
+import { useLanguage } from '../context/LanguageContext';
 
 export default function Features() {
+  const { t } = useLanguage();
+  
+  const features = [
+    {
+      icon: <Zap className="w-8 h-8 text-slate-900" />,
+      title: t('f1_title', 'features'),
+      description: t('f1_desc', 'features')
+    },
+    {
+      icon: <ShieldCheck className="w-8 h-8 text-slate-900" />,
+      title: t('f2_title', 'features'),
+      description: t('f2_desc', 'features')
+    },
+    {
+      icon: <Droplets className="w-8 h-8 text-slate-900" />,
+      title: t('f3_title', 'features'),
+      description: t('f3_desc', 'features')
+    },
+    {
+      icon: <CheckCircle2 className="w-8 h-8 text-slate-900" />,
+      title: t('f4_title', 'features'),
+      description: t('f4_desc', 'features')
+    }
+  ];
+
   return (
     <section id="keunggulan" className="py-24 bg-slate-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-20">
-          <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-6 uppercase tracking-tight">Keunggulan Kami</h2>
+          <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-6 uppercase tracking-tight">{t('section_title', 'features')}</h2>
           <p className="text-xl text-slate-600 font-medium">
-            Kami menghadirkan kualitas putih telur terbaik dengan standar kebersihan tinggi untuk mendukung gaya hidup sehat Anda.
+            {t('section_desc', 'features')}
           </p>
         </div>
 

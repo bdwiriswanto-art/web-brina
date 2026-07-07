@@ -1,6 +1,8 @@
 import { Instagram, ShoppingBag, Video } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
 
 export default function Footer() {
+  const { t } = useLanguage();
   return (
     <footer className="bg-slate-900 text-white py-16 border-t-8 border-yellow-400 relative z-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -11,7 +13,7 @@ export default function Footer() {
               <span className="text-2xl font-black tracking-tighter uppercase text-white">BRINA PUTIH TELUR</span>
             </div>
             <p className="text-slate-400 max-w-sm leading-relaxed font-medium mb-6">
-              Mitra terbaik untuk memenuhi kebutuhan protein harian Anda. Berkualitas, higienis, dan terpercaya tanpa lemak tambahan.
+              {t('desc', 'footer')}
             </p>
             <div className="flex gap-4">
               <a 
@@ -19,7 +21,7 @@ export default function Footer() {
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="w-10 h-10 bg-slate-800 rounded-full flex items-center justify-center hover:bg-yellow-400 hover:text-slate-900 transition-all text-slate-400"
-                title="Ikuti kami di Instagram"
+                title={t('tt_ig', 'footer')}
               >
                 <Instagram className="w-5 h-5" />
               </a>
@@ -28,7 +30,7 @@ export default function Footer() {
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="w-10 h-10 bg-slate-800 rounded-full flex items-center justify-center hover:bg-[#ee4d2d] hover:text-white transition-all text-slate-400"
-                title="Kunjungi Toko Shopee Kami"
+                title={t('tt_shopee', 'footer')}
               >
                 <ShoppingBag className="w-5 h-5" />
               </a>
@@ -37,7 +39,7 @@ export default function Footer() {
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="w-10 h-10 bg-slate-800 rounded-full flex items-center justify-center hover:bg-black hover:text-white transition-all text-slate-400"
-                title="Ikuti kami di TikTok"
+                title={t('tt_tiktok', 'footer')}
               >
                 {/* Custom TikTok SVG for perfection */}
                 <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
@@ -48,31 +50,31 @@ export default function Footer() {
           </div>
           
           <div>
-            <h4 className="font-black text-sm uppercase tracking-widest text-yellow-400 mb-6">Tautan</h4>
+            <h4 className="font-black text-sm uppercase tracking-widest text-yellow-400 mb-6">{t('link_title', 'footer')}</h4>
             <ul className="space-y-4 font-bold text-sm uppercase tracking-wider">
-              <li><a href="#beranda" className="text-slate-400 hover:text-yellow-400 transition-colors">Beranda</a></li>
-              <li><a href="#keunggulan" className="text-slate-400 hover:text-yellow-400 transition-colors">Keunggulan</a></li>
-              <li><a href="#teori" className="text-slate-400 hover:text-yellow-400 transition-colors">Manfaat & Nutrisi</a></li>
-              <li><a href="#produk" className="text-slate-400 hover:text-yellow-400 transition-colors">Produk</a></li>
+              <li><a href="#beranda" className="text-slate-400 hover:text-yellow-400 transition-colors">{t('beranda', 'navbar')}</a></li>
+              <li><a href="#keunggulan" className="text-slate-400 hover:text-yellow-400 transition-colors">{t('keunggulan', 'navbar')}</a></li>
+              <li><a href="#teori" className="text-slate-400 hover:text-yellow-400 transition-colors">{t('sains', 'navbar')}</a></li>
+              <li><a href="#produk" className="text-slate-400 hover:text-yellow-400 transition-colors">{t('produk', 'navbar')}</a></li>
             </ul>
           </div>
           
           <div>
-            <h4 className="font-black text-sm uppercase tracking-widest text-yellow-400 mb-6">Kontak</h4>
+            <h4 className="font-black text-sm uppercase tracking-widest text-yellow-400 mb-6">{t('contact_title', 'footer')}</h4>
             <ul className="space-y-4 font-medium text-slate-400 text-sm">
               <li><span className="block font-bold text-white uppercase tracking-wider text-xs mb-1">WhatsApp</span> +62 821-4662-8802</li>
               <li><span className="block font-bold text-white uppercase tracking-wider text-xs mb-1">Instagram</span> <a href="https://www.instagram.com/putihtelur.smg?igsh=MW11ZmNsbzVuOTF3NA==" target="_blank" rel="noopener noreferrer" className="text-yellow-400 hover:underline">@putihtelur.smg</a></li>
               <li><span className="block font-bold text-white uppercase tracking-wider text-xs mb-1">TikTok</span> <a href="https://www.tiktok.com/@putihtelur.smg?_t=ZS-8zehzNZOvOG&_r=1" target="_blank" rel="noopener noreferrer" className="text-yellow-400 hover:underline">@putihtelur.smg</a></li>
               <li><span className="block font-bold text-white uppercase tracking-wider text-xs mb-1">Shopee</span> <a href="https://id.shp.ee/Yt3tDYxd" target="_blank" rel="noopener noreferrer" className="text-yellow-400 hover:underline">putihtelur.smg</a></li>
               <li><span className="block font-bold text-white uppercase tracking-wider text-xs mb-1">Email</span> putihtelursmg@gmail.com</li>
-              <li><span className="block font-bold text-white uppercase tracking-wider text-xs mb-1">Lokasi</span> Jl. Badak II No.19, Pandean Lamper, Kec. Gayamsari, Kota Semarang, Jawa Tengah 50249, Indonesia</li>
+              <li><span className="block font-bold text-white uppercase tracking-wider text-xs mb-1">{t('l_loc', 'footer')}</span> Jl. Badak II No.19, Pandean Lamper, Kec. Gayamsari, Kota Semarang, Jawa Tengah 50249, Indonesia</li>
             </ul>
           </div>
         </div>
         
         <div className="pt-8 border-t border-slate-800 text-center md:text-left text-slate-500 text-sm flex flex-col md:flex-row justify-between items-center gap-4 font-bold uppercase tracking-widest">
-          <p>&copy; {new Date().getFullYear()} BRINA PUTIH TELUR. Hak Cipta Dilindungi.</p>
-          <p className="text-yellow-500">MURNI. BERSIH. SEHAT.</p>
+          <p>{t('copyright', 'footer').replace('{year}', new Date().getFullYear().toString())}</p>
+          <p className="text-yellow-500">{t('slogan', 'footer')}</p>
         </div>
       </div>
     </footer>
