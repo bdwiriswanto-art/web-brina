@@ -10,6 +10,7 @@ export default function Products() {
   const [formData, setFormData] = useState({
     nama: '',
     jumlah: '',
+    jenis: '',
     jamAmbil: ''
   });
 
@@ -51,13 +52,14 @@ export default function Products() {
     msg = msg.replace('{productName}', selectedProduct);
     msg = msg.replace('{nama}', formData.nama);
     msg = msg.replace('{jumlah}', formData.jumlah);
+    msg = msg.replace('{jenis}', formData.jenis);
     msg = msg.replace('{jamAmbil}', formData.jamAmbil);
     
     const text = encodeURIComponent(msg);
     window.open(`https://wa.me/6282146628802?text=${text}`, '_blank');
     
     setShowModal(false);
-    setFormData({ nama: '', jumlah: '', jamAmbil: '' });
+    setFormData({ nama: '', jumlah: '', jenis: '', jamAmbil: '' });
   };
 
   return (
@@ -188,6 +190,21 @@ export default function Products() {
                     className="w-full bg-slate-50 border-2 border-slate-200 rounded-xl py-3 px-4 font-semibold text-slate-900 focus:outline-none focus:border-yellow-400 focus:bg-white transition-colors"
                     placeholder="Contoh: 2 kg"
                   />
+                </div>
+                <div>
+                  <label className="block text-xs font-black uppercase tracking-widest text-slate-500 mb-2">
+                    {t('modal_type', 'products')}
+                  </label>
+                  <select
+                    required
+                    value={formData.jenis}
+                    onChange={(e) => setFormData({...formData, jenis: e.target.value})}
+                    className="w-full bg-slate-50 border-2 border-slate-200 rounded-xl py-3 px-4 font-semibold text-slate-900 focus:outline-none focus:border-yellow-400 focus:bg-white transition-colors appearance-none"
+                  >
+                    <option value="" disabled>{t('modal_type_placeholder', 'products')}</option>
+                    <option value={t('modal_type_raw', 'products')}>{t('modal_type_raw', 'products')}</option>
+                    <option value={t('modal_type_cooked', 'products')}>{t('modal_type_cooked', 'products')}</option>
+                  </select>
                 </div>
                 <div>
                   <label className="block text-xs font-black uppercase tracking-widest text-slate-500 mb-2">

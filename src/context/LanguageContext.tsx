@@ -61,10 +61,14 @@ export const translations: Record<Language, Record<string, Record<string, string
       modal_title: 'Detail Pesanan',
       modal_name: 'Nama Pemesan',
       modal_qty: 'Berapa kg / Jumlah',
+      modal_type: 'Jenis (Matang/Mentah)',
+      modal_type_raw: 'Mentah',
+      modal_type_cooked: 'Matang',
+      modal_type_placeholder: 'Pilih jenis...',
       modal_time: 'Jam Pengambilan',
       modal_cancel: 'Batal',
       modal_submit: 'Lanjut ke WhatsApp',
-      wa_msg_template: 'Halo, saya ingin memesan {productName}.\nNama: {nama}\nJumlah: {jumlah}\nJam Pengambilan: {jamAmbil}\n\nApakah stoknya tersedia?'
+      wa_msg_template: 'Halo, saya ingin memesan {productName}.\nNama: {nama}\nJumlah: {jumlah}\nJenis: {jenis}\nJam Pengambilan: {jamAmbil}\n\nApakah stoknya tersedia?'
     },
     egg_theory: {
       section_badge: 'Manfaat & Nutrisi Praktis',
@@ -192,10 +196,14 @@ export const translations: Record<Language, Record<string, Record<string, string
       modal_title: 'Order Details',
       modal_name: 'Your Name',
       modal_qty: 'Quantity (kg/pcs)',
+      modal_type: 'Type (Raw/Cooked)',
+      modal_type_raw: 'Raw',
+      modal_type_cooked: 'Cooked',
+      modal_type_placeholder: 'Select type...',
       modal_time: 'Pickup Time',
       modal_cancel: 'Cancel',
       modal_submit: 'Continue to WhatsApp',
-      wa_msg_template: 'Hello, I would like to order {productName}.\nName: {nama}\nQuantity: {jumlah}\nPickup Time: {jamAmbil}\n\nIs it in stock?'
+      wa_msg_template: 'Hello, I would like to order {productName}.\nName: {nama}\nQuantity: {jumlah}\nType: {jenis}\nPickup Time: {jamAmbil}\n\nIs it in stock?'
     },
     egg_theory: {
       section_badge: 'Practical Benefits & Nutrition',
