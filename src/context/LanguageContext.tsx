@@ -57,7 +57,14 @@ export const translations: Record<Language, Record<string, Record<string, string
       popular_badge: 'Paling Laris 🔥',
       btn_wa: 'Beli via WhatsApp',
       btn_shopee: 'Beli via Shopee',
-      wa_msg: 'Halo, saya ingin memesan {productName}. Apakah stoknya tersedia?'
+      wa_msg: 'Halo, saya ingin memesan {productName}. Apakah stoknya tersedia?',
+      modal_title: 'Detail Pesanan',
+      modal_name: 'Nama Pemesan',
+      modal_qty: 'Berapa kg / Jumlah',
+      modal_time: 'Jam Pengambilan',
+      modal_cancel: 'Batal',
+      modal_submit: 'Lanjut ke WhatsApp',
+      wa_msg_template: 'Halo, saya ingin memesan {productName}.\nNama: {nama}\nJumlah: {jumlah}\nJam Pengambilan: {jamAmbil}\n\nApakah stoknya tersedia?'
     },
     egg_theory: {
       section_badge: 'Manfaat & Nutrisi Praktis',
@@ -181,7 +188,14 @@ export const translations: Record<Language, Record<string, Record<string, string
       popular_badge: 'Best Seller 🔥',
       btn_wa: 'Buy via WhatsApp',
       btn_shopee: 'Buy via Shopee',
-      wa_msg: 'Hello, I would like to order {productName}. Is it in stock?'
+      wa_msg: 'Hello, I would like to order {productName}. Is it in stock?',
+      modal_title: 'Order Details',
+      modal_name: 'Your Name',
+      modal_qty: 'Quantity (kg/pcs)',
+      modal_time: 'Pickup Time',
+      modal_cancel: 'Cancel',
+      modal_submit: 'Continue to WhatsApp',
+      wa_msg_template: 'Hello, I would like to order {productName}.\nName: {nama}\nQuantity: {jumlah}\nPickup Time: {jamAmbil}\n\nIs it in stock?'
     },
     egg_theory: {
       section_badge: 'Practical Benefits & Nutrition',

@@ -1,9 +1,17 @@
-import { motion } from 'motion/react';
-import { ShoppingCart, ShoppingBag } from 'lucide-react';
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'motion/react';
+import { ShoppingCart, ShoppingBag, X } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 
 export default function Products() {
   const { t, language } = useLanguage();
+  const [showModal, setShowModal] = useState(false);
+  const [selectedProduct, setSelectedProduct] = useState('');
+  const [formData, setFormData] = useState({
+    nama: '',
+    jumlah: '',
+    jamAmbil: ''
+  });
 
   const products = [
     {
@@ -33,10 +41,23 @@ export default function Products() {
   ];
 
   const handleOrder = (productName: string) => {
-    const rawMsg = t('wa_msg', 'products');
-    const msg = rawMsg.replace('{productName}', productName);
+    setSelectedProduct(productName);
+    setShowModal(true);
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    let msg = t('wa_msg_template', 'products');
+    msg = msg.replace('{productName}', selectedProduct);
+    msg = msg.replace('{nama}', formData.nama);
+    msg = msg.replace('{jumlah}', formData.jumlah);
+    msg = msg.replace('{jamAmbil}', formData.jamAmbil);
+    
     const text = encodeURIComponent(msg);
     window.open(`https://wa.me/6282146628802?text=${text}`, '_blank');
+    
+    setShowModal(false);
+    setFormData({ nama: '', jumlah: '', jamAmbil: '' });
   };
 
   return (
@@ -110,6 +131,98 @@ export default function Products() {
           ))}
         </div>
       </div>
+
+      <AnimatePresence>
+        {showModal && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+            <motion.div 
+              initial={{ opacity: 0 }} 
+              animate={{ opacity: 1 }} 
+              exit={{ opacity: 0 }}
+              className="absolute inset-0 bg-slate-900/60 backdrop-blur-sm"
+              onClick={() => setShowModal(false)}
+            />
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.95, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: 20 }}
+              className="relative bg-white rounded-[32px] p-8 w-full max-w-md shadow-2xl border-4 border-slate-100"
+            >
+              <button 
+                onClick={() => setShowModal(false)}
+                className="absolute top-6 right-6 w-8 h-8 flex items-center justify-center bg-slate-100 text-slate-500 hover:text-slate-900 hover:bg-slate-200 rounded-full transition-colors"
+              >
+                <X className="w-4 h-4" />
+              </button>
+              
+              <h3 className="text-2xl font-black text-slate-900 mb-2 uppercase tracking-wide">
+                {t('modal_title', 'products')}
+              </h3>
+              <p className="text-slate-500 font-medium text-sm mb-6 pb-6 border-b border-slate-100">
+                {selectedProduct}
+              </p>
+
+              <form onSubmit={handleSubmit} className="space-y-4">
+                <div>
+                  <label className="block text-xs font-black uppercase tracking-widest text-slate-500 mb-2">
+                    {t('modal_name', 'products')}
+                  </label>
+                  <input
+                    required
+                    type="text"
+                    value={formData.nama}
+                    onChange={(e) => setFormData({...formData, nama: e.target.value})}
+                    className="w-full bg-slate-50 border-2 border-slate-200 rounded-xl py-3 px-4 font-semibold text-slate-900 focus:outline-none focus:border-yellow-400 focus:bg-white transition-colors"
+                    placeholder="Contoh: Budi"
+                  />
+                </div>
+                <div>
+                  <label className="block text-xs font-black uppercase tracking-widest text-slate-500 mb-2">
+                    {t('modal_qty', 'products')}
+                  </label>
+                  <input
+                    required
+                    type="text"
+                    value={formData.jumlah}
+                    onChange={(e) => setFormData({...formData, jumlah: e.target.value})}
+                    className="w-full bg-slate-50 border-2 border-slate-200 rounded-xl py-3 px-4 font-semibold text-slate-900 focus:outline-none focus:border-yellow-400 focus:bg-white transition-colors"
+                    placeholder="Contoh: 2 kg"
+                  />
+                </div>
+                <div>
+                  <label className="block text-xs font-black uppercase tracking-widest text-slate-500 mb-2">
+                    {t('modal_time', 'products')}
+                  </label>
+                  <input
+                    required
+                    type="text"
+                    value={formData.jamAmbil}
+                    onChange={(e) => setFormData({...formData, jamAmbil: e.target.value})}
+                    className="w-full bg-slate-50 border-2 border-slate-200 rounded-xl py-3 px-4 font-semibold text-slate-900 focus:outline-none focus:border-yellow-400 focus:bg-white transition-colors"
+                    placeholder="Contoh: Jam 16:00"
+                  />
+                </div>
+                
+                <div className="pt-4 flex gap-3">
+                  <button
+                    type="button"
+                    onClick={() => setShowModal(false)}
+                    className="flex-1 py-3 px-4 rounded-xl font-bold uppercase tracking-wider text-xs bg-slate-100 text-slate-600 hover:bg-slate-200 transition-colors"
+                  >
+                    {t('modal_cancel', 'products')}
+                  </button>
+                  <button
+                    type="submit"
+                    className="flex-1 py-3 px-4 rounded-xl font-black uppercase tracking-wider text-xs bg-green-500 text-white hover:bg-green-600 shadow-lg shadow-green-200 transition-all hover:-translate-y-0.5"
+                  >
+                    {t('modal_submit', 'products')}
+                  </button>
+                </div>
+              </form>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
     </section>
   );
 }
